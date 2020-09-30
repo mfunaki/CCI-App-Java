@@ -1,4 +1,14 @@
 version: 2
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build_and_test
+      - deploy:
+          requires:
+            - build_and_test
+
 jobs:
   build_and_test:
     parallelism: 2
@@ -50,10 +60,4 @@ jobs:
       - image: circleci/openjdk:11.0.3-jdk-stretch
     steps:
       - run: echo 'Deploying a system.'
-     
-  workflow:
-    jobs:
-      - build_and_test 
-      - deploy:
-         requires:
-           - build_and_test
+
