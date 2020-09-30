@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build_and_test:
     parallelism: 2
     environment:
       _JAVA_OPTIONS: "-Xmx3g"
@@ -43,9 +43,21 @@ jobs:
       # JAR は最初のビルド コンテナでのみ収集されるため、他のすべてのビルド コンテナでは build/libs が空になります
       - store_artifacts:
           path: build/libs
+
+  deploy:
       # デプロイ例については https://circleci.com/ja/docs/2.0/deployment-integrations/ を参照してください
-workflows:
+    docker:
+      - image: circleci/openjdk:11.0.3-jdk-stretch
+    steps:
+      - run: echo 'Deploying a system.'
+          name: テストの実行
+          command: |
+            echo 'Deploying a system.'
+     
   version: 2
   workflow:
     jobs:
-    - build 
+      - build_and_test 
+      - deploy
+        requires:
+          - build_and_test
