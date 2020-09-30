@@ -4,6 +4,6 @@ import com.google.errorprone.annotations.OverridingMethodsMustInvokeSuper;
 
 public class AddOperator implements Operator {
     public int operate(int a, int b) {
-        return a - b;
+        return a + b;
     }
 }
