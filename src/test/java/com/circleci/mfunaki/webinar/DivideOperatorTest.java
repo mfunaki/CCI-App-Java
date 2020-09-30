@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DivideOperatorTest extends AbstractOperatorTest {
-    public AddOperatorTest() {
+    public DivideOperatorTest() {
         super(
             new CheckCase[] {
                 new CheckCase(9, 3, 3),
