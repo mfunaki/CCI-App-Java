@@ -51,7 +51,6 @@ jobs:
     steps:
       - run: echo 'Deploying a system.'
      
-  version: 2
   workflow:
     jobs:
       - build_and_test 
