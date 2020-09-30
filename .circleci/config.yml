@@ -58,6 +58,6 @@ jobs:
   workflow:
     jobs:
       - build_and_test 
-      - deploy
-        requires:
-          - build_and_test
+      - deploy:
+         requires:
+           - build_and_test
