@@ -1,6 +1,6 @@
 package com.circleci.mfunaki.webinar;
 
-public class TestCase {
+public class CheckCase {
     private int param1;
     private int param2;
     private int expected;
