@@ -9,9 +9,10 @@
 plugins {
     // Apply the java plugin to add support for Java
     id 'java'
-
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
+    // Output classpath to activate auto-completion
+    id 'eclipse'
 }
 
 repositories {
@@ -31,4 +32,8 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClassName = 'com.circleci.mfunaki.webinar.App'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
